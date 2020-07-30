@@ -8,3 +8,13 @@ E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.GenerateR
 E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CoreCompileInputs.cache
 E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.exe
 E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.pdb
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.exe.config
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.exe
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.pdb
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csprojAssemblyReference.cache
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.MainWin.resources
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.Properties.Resources.resources
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.GenerateResource.cache
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CoreCompileInputs.cache
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.exe
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.pdb
