@@ -1,0 +1,10 @@
+E:\projects\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.exe.config
+E:\projects\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.exe
+E:\projects\mainAppDiplom\mainAppDiplom\bin\Debug\mainAppDiplom.pdb
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csprojAssemblyReference.cache
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.MainWin.resources
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.Properties.Resources.resources
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.GenerateResource.cache
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CoreCompileInputs.cache
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.exe
+E:\projects\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.pdb
