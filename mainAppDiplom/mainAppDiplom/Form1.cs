@@ -25,7 +25,7 @@ namespace mainAppDiplom
             print_data_vvp();
             create_Series_Chart2();
 
-
+            line_Reg();
 
         }
         #region functions data
@@ -173,7 +173,7 @@ namespace mainAppDiplom
             chart2.Series.Add(new Series("Лінійна регресія")
             {
                 ChartType = SeriesChartType.Point,
-                Color = Color.BlueViolet
+                Color = Color.Blue
             });
         }
 
@@ -241,6 +241,74 @@ namespace mainAppDiplom
         }
         #endregion
 
+
+        int sumX = 0, sumY = 0;
+        long sumX2 = 0, sumXY = 0;
+        public void line_Reg()
+        {
+
+            for(int i = 0; i < data_all.Length; i++)
+            {
+                sumX += Convert.ToInt32(Math.Round(data_all[i],0));
+                sumY += Convert.ToInt32(Math.Round(data_vvp[i],0));
+                sumX2 += Convert.ToInt64(Math.Round(Math.Pow(data_all[i],2), 0));
+                sumXY += Convert.ToInt64(Math.Round(data_all[i]*data_vvp[i], 0));
+            }
+            equation_reg();
+            //label17.Text = sumX + " " + sumY + " " + sumX2 + " " + sumXY;
+        }
+
+        public void equation_reg()
+        {
+            double x, y, delta, deltaX, deltaY;
+            double tbX1Y1 = Convert.ToDouble(data_all.Length),
+                tbX2Y1 = Convert.ToDouble(sumX),
+                tbX1Y2 = Convert.ToDouble(sumX),
+                tbX2Y2 = Convert.ToDouble(sumX2),
+                tbResult1 = Convert.ToDouble(sumY),
+                tbResult2 = Convert.ToDouble(sumXY);
+
+            //  |x1y1 | x2y1 | result1 |
+            //  |-----|------|---------|
+            //  |x1y2 | x2y2 | result2 |
+
+            delta = (tbX1Y1 * tbX2Y2) - (tbX1Y2 * tbX2Y1);
+            deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
+            deltaY = (tbX1Y1 * tbResult2) - (tbX2Y1 * tbResult1);
+
+            //if (comboBoxUr1.Text == "+" && comboBoxUr2.Text == "+")
+            //{
+            //    delta = (tbX1Y1 * tbX2Y2) - (tbX1Y2 * tbX2Y1);
+            //    deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
+            //    deltaY = (tbX1Y1 * tbResult2) - (tbX2Y1 * tbResult1);
+            //}
+
+            //if (comboBoxUr1.Text == "-" && comboBoxUr2.Text == "+")
+            //{
+            //    delta = (tbX1Y1 * tbX2Y2) + (tbX1Y2 * tbX2Y1);
+            //    deltaX = (tbResult1 * tbX2Y2) + (tbResult2 * tbX2Y1);
+            //    deltaY = (tbX1Y1 * tbResult2) - (tbX1Y2 * tbResult1);
+            //}
+
+            //if (comboBoxUr1.Text == "+" && comboBoxUr2.Text == "-")
+            //{
+            //    delta = (tbX1Y1 * tbX2Y2) + (tbX1Y2 * tbX2Y1);
+            //    deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
+            //    deltaY = (tbX1Y1 * tbResult2) + (tbX1Y2 * tbResult1);
+            //}
+
+            //if (comboBoxUr1.Text == "-" && comboBoxUr2.Text == "-")
+            //{
+            //    delta = (tbX1Y1 * -tbX2Y2) + (tbX1Y2 * tbX2Y1);
+            //    deltaX = (tbResult1 * -tbX2Y2) + (tbResult2 * tbX2Y1);
+            //    deltaY = (tbX1Y1 * tbResult2) - (tbX1Y2 * tbResult1);
+            //}
+
+            x = Math.Round(deltaX / delta,0);
+            y = Math.Round(deltaY / delta, 3);
+
+            label17.Text = y + "x + " + x;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
