@@ -18,3 +18,14 @@ E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDi
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CoreCompileInputs.cache
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.exe
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.pdb
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\dbeconomy.db
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.dll
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.SqlServer.dll
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.dll
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.EF6.dll
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.Linq.dll
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.xml
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.SqlServer.xml
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.xml
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.dll.config
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CopyComplete
