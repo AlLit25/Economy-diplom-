@@ -24,9 +24,6 @@ namespace mainAppDiplom
             print_data_all();
             print_data_vvp();
             create_Series_Chart2();
-
-            line_Reg();
-
         }
         #region functions data
 
@@ -95,7 +92,6 @@ namespace mainAppDiplom
         public void print_data_all()
         {
             label15.Text = "";
-            //Random rand = new Random();
             for (int i = 0; i <= 10; i++)
             {
                 data_all[i] = data_own[i] + data_state[i] + data_foregn[i] + data_others[i];
@@ -110,7 +106,7 @@ namespace mainAppDiplom
             Random rand = new Random();
             for (int i = 0; i <= 10; i++)
             {
-                data_vvp[i] = Math.Round(rand.Next(92500, 4800000) + rand.NextDouble(), 1);
+                data_vvp[i] = Math.Round(rand.Next(9250, 480000) + rand.NextDouble(), 1);
                 label16.Text += data_vvp[i];
                 label16.Text += Environment.NewLine + Environment.NewLine;
             }
@@ -120,13 +116,14 @@ namespace mainAppDiplom
         #region chart
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            chart1.Titles.Add("Дані відображені у відсотках");
+            if(chart1.Titles.Count == 0) chart1.Titles.Add("Дані відображені у відсотках");
             chart1.Series["S_Year"].Points.Clear();
             int index;
             index = Convert.ToInt32(comboBox1.SelectedIndex.ToString());
             //label17.Text = data_own[index].ToString();
-            chart1.Series["S_Year"].IsValueShownAsLabel = true;
 
+            chart1.Series["S_Year"].IsValueShownAsLabel = true;
+            
             double ownpercent = Math.Round(data_own[index] / (data_all[index] / 100),1);
             double statepercent = Math.Round(data_state[index] / (data_all[index] / 100), 1);
             double foregnpercent = Math.Round(data_foregn[index] / (data_all[index] / 100), 1);
@@ -136,7 +133,6 @@ namespace mainAppDiplom
             chart1.Series["S_Year"].Points.AddXY("Державний бюджет", statepercent);
             chart1.Series["S_Year"].Points.AddXY("Іноземних інвесторів", foregnpercent);
             chart1.Series["S_Year"].Points.AddXY("Інщі джерела", otherspercent);
-
         }
 
         public void create_Series_Chart2()
@@ -172,7 +168,7 @@ namespace mainAppDiplom
             });
             chart2.Series.Add(new Series("Лінійна регресія")
             {
-                ChartType = SeriesChartType.Point,
+                ChartType = SeriesChartType.Spline,
                 Color = Color.Blue
             });
         }
@@ -185,11 +181,13 @@ namespace mainAppDiplom
             chart2.Series["Іноземних інвесторів"].Points.Clear();
             chart2.Series["Інщі джерела"].Points.Clear();
             chart2.Series["Залежність ВВП/Інвестиції"].Points.Clear();
+            chart2.Series["Лінійна регресія"].Points.Clear();
 
             string chart_name = comboBox2.SelectedItem.ToString();
 
             label18.Text = "Вісь X - РІК";
             label19.Text = "Вісь Y - млн грн";
+
             if(chart_name == "Загальний")
             {
                 for (int i = 0; i < data_year.Length; i++)
@@ -230,37 +228,41 @@ namespace mainAppDiplom
                     chart2.Series["Інщі джерела"].Points.AddXY(data_year[i], data_others[i]);
                 }
             }
-            //Залежність ВВП від інвестицій
             if (chart_name == "Залежність ВВП/Інвестиції")
             {
+                label18.Text = "Вісь X - Загальні інвестиції";
+                label19.Text = "Вісь Y - ВВП";
+                line_Reg();
                 for (int i = 0; i < data_all.Length; i++)
                 {
                     chart2.Series["Залежність ВВП/Інвестиції"].Points.AddXY(data_all[i], data_vvp[i]);
+                    chart2.Series["Лінійна регресія"].Points.AddXY(data_all[i], y + x * data_all[i]);
                 }
             }
         }
         #endregion
 
 
-        int sumX = 0, sumY = 0;
-        long sumX2 = 0, sumXY = 0;
+        
+        double x, y;
+
         public void line_Reg()
         {
-
-            for(int i = 0; i < data_all.Length; i++)
+            int sumX = 0, sumY = 0;
+            long sumX2 = 0, sumXY = 0;
+            for (int i = 0; i < data_all.Length; i++)
             {
                 sumX += Convert.ToInt32(Math.Round(data_all[i],0));
                 sumY += Convert.ToInt32(Math.Round(data_vvp[i],0));
                 sumX2 += Convert.ToInt64(Math.Round(Math.Pow(data_all[i],2), 0));
                 sumXY += Convert.ToInt64(Math.Round(data_all[i]*data_vvp[i], 0));
             }
-            equation_reg();
-            //label17.Text = sumX + " " + sumY + " " + sumX2 + " " + sumXY;
+            equation_reg(sumX,sumY,sumX2, sumXY);
         }
 
-        public void equation_reg()
+        public void equation_reg(int sumX, int sumY, long sumX2, long sumXY)
         {
-            double x, y, delta, deltaX, deltaY;
+            double delta, deltaX, deltaY;
             double tbX1Y1 = Convert.ToDouble(data_all.Length),
                 tbX2Y1 = Convert.ToDouble(sumX),
                 tbX1Y2 = Convert.ToDouble(sumX),
@@ -276,38 +278,10 @@ namespace mainAppDiplom
             deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
             deltaY = (tbX1Y1 * tbResult2) - (tbX2Y1 * tbResult1);
 
-            //if (comboBoxUr1.Text == "+" && comboBoxUr2.Text == "+")
-            //{
-            //    delta = (tbX1Y1 * tbX2Y2) - (tbX1Y2 * tbX2Y1);
-            //    deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
-            //    deltaY = (tbX1Y1 * tbResult2) - (tbX2Y1 * tbResult1);
-            //}
+            y = Math.Round(deltaX / delta,0);
+            x = Math.Round(deltaY / delta, 3);
 
-            //if (comboBoxUr1.Text == "-" && comboBoxUr2.Text == "+")
-            //{
-            //    delta = (tbX1Y1 * tbX2Y2) + (tbX1Y2 * tbX2Y1);
-            //    deltaX = (tbResult1 * tbX2Y2) + (tbResult2 * tbX2Y1);
-            //    deltaY = (tbX1Y1 * tbResult2) - (tbX1Y2 * tbResult1);
-            //}
-
-            //if (comboBoxUr1.Text == "+" && comboBoxUr2.Text == "-")
-            //{
-            //    delta = (tbX1Y1 * tbX2Y2) + (tbX1Y2 * tbX2Y1);
-            //    deltaX = (tbResult1 * tbX2Y2) - (tbResult2 * tbX2Y1);
-            //    deltaY = (tbX1Y1 * tbResult2) + (tbX1Y2 * tbResult1);
-            //}
-
-            //if (comboBoxUr1.Text == "-" && comboBoxUr2.Text == "-")
-            //{
-            //    delta = (tbX1Y1 * -tbX2Y2) + (tbX1Y2 * tbX2Y1);
-            //    deltaX = (tbResult1 * -tbX2Y2) + (tbResult2 * tbX2Y1);
-            //    deltaY = (tbX1Y1 * tbResult2) - (tbX1Y2 * tbResult1);
-            //}
-
-            x = Math.Round(deltaX / delta,0);
-            y = Math.Round(deltaY / delta, 3);
-
-            label17.Text = y + "x + " + x;
+            //label17.Text = y + "x + " + x + " | " + tbX1Y1 + " | " + tbX1Y2 + " | " + tbX2Y1 + " | " + tbX2Y2 + " | " + tbResult1 + " | " + tbResult2;
         }
         private void button1_Click(object sender, EventArgs e)
         {
