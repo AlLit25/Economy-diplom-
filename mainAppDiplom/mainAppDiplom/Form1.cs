@@ -29,72 +29,102 @@ namespace mainAppDiplom
         }
         #region functions data
 
-        int[] data_year = new int[11];
+        int[] data_year = new int[2];
         public void print_year()
         {
             label10.Text = "";
+            //int i = 0;
 
-            for (int i = 0; i < data_year.Length; i++)
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Year FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            for(int i = 0; reader.Read() == true; i++) //while (reader.Read())
             {
-                int index = 2009;
-                data_year[i] = index+i;
+                //i++; //while
+                data_year[i] = Convert.ToInt32(reader[0].ToString());
                 label10.Text += data_year[i] + Environment.NewLine + Environment.NewLine;
                 comboBox1.Items.Add(data_year[i]);
             }
+            db.closeConn();
         }
         double[] data_own = new double[11];
         public void print_data_own()
         {
             label11.Text = "";
-            Random rand = new Random();
-            for (int i = 0; i < data_own.Length; i++)
+            int i = 0;
+
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Data_own FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
             {
-                data_own[i] = Math.Round(rand.Next(4700, 21500) + rand.NextDouble(), 1);
-                label11.Text += data_own[i];
-                label11.Text += Environment.NewLine + Environment.NewLine;
+                i++;
+                data_own[i] = Convert.ToDouble(reader[0].ToString());
+                label11.Text += data_own[i] + Environment.NewLine + Environment.NewLine;
             }
+            db.closeConn();
         }
         double[] data_state = new double[11];
         public void print_data_state()
         {
             label12.Text = "";
-            Random rand = new Random();
-            for (int i = 0; i < data_state.Length; i++)
+            int i = 0;
+
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Data_State FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
             {
-                data_state[i] = Math.Round(rand.Next(24, 227) + rand.NextDouble(), 1);
-                label12.Text += data_state[i];
-                label12.Text += Environment.NewLine + Environment.NewLine;
+                i++;
+                data_state[i] = Convert.ToDouble(reader[0].ToString());
+                label12.Text += data_state[i] + Environment.NewLine + Environment.NewLine;
             }
+            db.closeConn();
         }
         double[] data_foregn = new double[11];
         public void print_data_foregn()
         {
             label13.Text = "";
-            Random rand = new Random();
-            for (int i = 0; i < data_foregn.Length; i++)
+            int i = 0;
+
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Data_foregn FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
             {
-                data_foregn[i] = Math.Round(rand.Next(23, 24500) + rand.NextDouble(), 1);
-                label13.Text += data_foregn[i];
-                label13.Text += Environment.NewLine + Environment.NewLine;
+                i++;
+                data_foregn[i] = Convert.ToDouble(reader[0].ToString());
+                label13.Text += data_foregn[i] + Environment.NewLine + Environment.NewLine;
             }
+            db.closeConn();
         }
         double[] data_others = new double[11];
         public void print_data_others()
         {
             label14.Text = "";
-            Random rand = new Random();
-            for (int i = 0; i < data_others.Length; i++)
+            int i = 0;
+
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Data_others FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
             {
-                data_others[i] = Math.Round(rand.Next(272, 6550) + rand.NextDouble(), 1);
-                label14.Text += data_others[i];
-                label14.Text += Environment.NewLine + Environment.NewLine;
+                i++;
+                data_others[i] = Convert.ToDouble(reader[0].ToString());
+                label14.Text += data_others[i] + Environment.NewLine + Environment.NewLine;
             }
+            db.closeConn();
         }
         double[] data_all = new double[11];
         public void print_data_all()
         {
             label15.Text = "";
-            for (int i = 0; i <= 10; i++)
+            for (int i = 1; i < 11; i++)
             {
                 data_all[i] = data_own[i] + data_state[i] + data_foregn[i] + data_others[i];
                 label15.Text += data_all[i];
@@ -121,7 +151,7 @@ namespace mainAppDiplom
             if(chart1.Titles.Count == 0) chart1.Titles.Add("Дані відображені у відсотках");
             chart1.Series["S_Year"].Points.Clear();
             int index;
-            index = Convert.ToInt32(comboBox1.SelectedIndex.ToString());
+            index = Convert.ToInt32(comboBox1.SelectedIndex.ToString())+1;
             //label17.Text = data_own[index].ToString();
 
             chart1.Series["S_Year"].IsValueShownAsLabel = true;
@@ -288,23 +318,23 @@ namespace mainAppDiplom
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-
-            DataTable dt = new DataTable();
-
-            SQLiteDataAdapter da = new SQLiteDataAdapter();
-
-            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData'", db.getConn());
-
-            //label17.Text = comm;
-
-            da.SelectCommand = comm;
-            da.Fill(dt);
-
-            if (dt.Rows.Count > 0) MessageBox.Show(dt.Rows.Count.ToString());
-            else MessageBox.Show("error");
-
+            download_data();
         }
+
+        public void download_data()
+        {
+            DB db = new DB();
+            SQLiteCommand comm = new SQLiteCommand("SELECT Year FROM 'statisticsData'", db.getConn());
+            db.openConn();
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read())
+            {
+                label17.Text += reader[0].ToString();
+            }
+            db.closeConn();
+        }
+
+        //найти количество записей в бд для индекса
 
         private void button1_Click(object sender, EventArgs e)
         {

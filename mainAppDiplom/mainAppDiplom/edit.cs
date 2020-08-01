@@ -16,5 +16,10 @@ namespace mainAppDiplom
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //INSERT INTO `statisticsdata` (`year`, `own`, `state`, `foregn`, `other`, `sum_all`, `vvp`) VALUES ('2008', '4526', '458', '4523', '6363', '12548', '125566');
+        }
     }
 }

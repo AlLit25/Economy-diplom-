@@ -29,3 +29,4 @@ E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFra
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.xml
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.dll.config
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CopyComplete
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.edit.resources

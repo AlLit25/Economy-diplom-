@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.ThemeDiplom = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -206,9 +206,9 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(149, 16);
+            this.label3.Location = new System.Drawing.Point(139, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 47);
+            this.label3.Size = new System.Drawing.Size(75, 47);
             this.label3.TabIndex = 2;
             this.label3.Text = "Державний бюджет";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,11 +233,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(18, 577);
+            this.button2.Location = new System.Drawing.Point(137, 577);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 23);
+            this.button2.Size = new System.Drawing.Size(143, 23);
             this.button2.TabIndex = 7;
-            this.button2.Text = "Редагувати дані";
+            this.button2.Text = "Редагувати/Додати дані";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -264,22 +264,22 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(9, 40);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.CustomProperties = "PieLineColor=Black, PieLabelStyle=Outside, LabelsRadialLineSize=0.5";
-            series1.EmptyPointStyle.CustomProperties = "Exploded=True, PieLabelStyle=Outside";
-            series1.IsValueShownAsLabel = true;
-            series1.LabelBorderWidth = 3;
-            series1.Legend = "Legend1";
-            series1.Name = "S_Year";
-            series1.ShadowOffset = 5;
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.CustomProperties = "PieLineColor=Black, PieLabelStyle=Outside, LabelsRadialLineSize=0.5";
+            series3.EmptyPointStyle.CustomProperties = "Exploded=True, PieLabelStyle=Outside";
+            series3.IsValueShownAsLabel = true;
+            series3.LabelBorderWidth = 3;
+            series3.Legend = "Legend1";
+            series3.Name = "S_Year";
+            series3.ShadowOffset = 5;
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(633, 186);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -319,10 +319,10 @@
             // 
             // chart2
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
             this.chart2.Location = new System.Drawing.Point(9, 46);
             this.chart2.Name = "chart2";
             this.chart2.Size = new System.Drawing.Size(633, 261);
@@ -388,7 +388,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
-            this.button3.Text = "Зберегти";
+            this.button3.Text = "Завантажити";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
