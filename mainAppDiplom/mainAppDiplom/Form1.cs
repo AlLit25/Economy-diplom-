@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -284,6 +285,27 @@ namespace mainAppDiplom
 
             //label17.Text = y + "x + " + x + " | " + tbX1Y1 + " | " + tbX1Y2 + " | " + tbX2Y1 + " | " + tbX2Y2 + " | " + tbResult1 + " | " + tbResult2;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            DataTable dt = new DataTable();
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter();
+
+            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData'", db.getConn());
+
+            //label17.Text = comm;
+
+            da.SelectCommand = comm;
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0) MessageBox.Show(dt.Rows.Count.ToString());
+            else MessageBox.Show("error");
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
