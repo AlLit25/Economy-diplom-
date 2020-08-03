@@ -37,7 +37,7 @@ namespace mainAppDiplom
         double[] data_vvp;
         public void print_data()
         {
-            colRow = col_rowDB()+1;
+            colRow = col_rowDB();
             data_year = new int[colRow];
             data_own = new double[colRow];
             data_state = new double[colRow];
@@ -221,7 +221,7 @@ namespace mainAppDiplom
                 labelY.Visible = true;
                 labelRR.Visible = true;
                 line_Reg();
-                for (int i = 0; i < data_all.Length-2; i++)
+                for (int i = 0; i < data_all.Length; i++)
                 {
                     chart2.Series["Залежність ВВП/Інвестиції"].Points.AddXY(data_all[i], data_vvp[i]);
                     chart2.Series["Лінійна регресія"].Points.AddXY(data_all[i], y + x * data_all[i]);
@@ -242,7 +242,6 @@ namespace mainAppDiplom
             
             for (int i = 0; i < data_all.Length; i++)
             {
-                //if(Math.Round(data_all[i], 0) == 0)
                 sumX += Convert.ToInt32(Math.Round(data_all[i],0));
                 sumY += Convert.ToInt32(Math.Round(data_vvp[i],0));
                 sumXX += Convert.ToInt64(Math.Round(Math.Pow(data_all[i],2), 0));

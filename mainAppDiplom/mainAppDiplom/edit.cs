@@ -65,7 +65,7 @@ namespace mainAppDiplom
 
                 db.closeConn();
             }
-
+            Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
