@@ -164,12 +164,16 @@ namespace mainAppDiplom
             chart2.Series["Залежність ВВП/Інвестиції"].Points.Clear();
             chart2.Series["Лінійна регресія"].Points.Clear();
 
+            
+
             string chart_name = comboBox2.SelectedItem.ToString();
 
             label18.Text = "Вісь X - РІК";
             label19.Text = "Вісь Y - млн грн";
+            labelY.Visible = false;
+            labelRR.Visible = false;
 
-            if(chart_name == "Загальний")
+            if (chart_name == "Загальний")
             {
                 for (int i = 0; i < data_year.Length; i++)
                 {
@@ -213,12 +217,16 @@ namespace mainAppDiplom
             {
                 label18.Text = "Вісь X - Загальні інвестиції";
                 label19.Text = "Вісь Y - ВВП";
+                labelY.Visible = true;
+                labelRR.Visible = true;
                 line_Reg();
-                for (int i = 0; i < data_all.Length; i++)
+                for (int i = 0; i < data_all.Length-1; i++)
                 {
                     chart2.Series["Залежність ВВП/Інвестиції"].Points.AddXY(data_all[i], data_vvp[i]);
                     chart2.Series["Лінійна регресія"].Points.AddXY(data_all[i], y + x * data_all[i]);
                 }
+                labelY.Text = "y = "+x+" + "+ y+"x";
+                labelRR.Text = "RR = 0," + sumXX;
             }
         }
         #endregion
@@ -226,28 +234,29 @@ namespace mainAppDiplom
 
         #region regresion line
         double x, y;
-
+        int sumX = 0, sumY = 0;
+        long sumXX = 0, sumXY = 0;
         public void line_Reg()
         {
-            int sumX = 0, sumY = 0;
-            long sumX2 = 0, sumXY = 0;
+            
             for (int i = 0; i < data_all.Length; i++)
             {
+                //if(Math.Round(data_all[i], 0) == 0)
                 sumX += Convert.ToInt32(Math.Round(data_all[i],0));
                 sumY += Convert.ToInt32(Math.Round(data_vvp[i],0));
-                sumX2 += Convert.ToInt64(Math.Round(Math.Pow(data_all[i],2), 0));
+                sumXX += Convert.ToInt64(Math.Round(Math.Pow(data_all[i],2), 0));
                 sumXY += Convert.ToInt64(Math.Round(data_all[i]*data_vvp[i], 0));
             }
-            equation_reg(sumX,sumY,sumX2, sumXY);
+            equation_reg(sumX,sumY,sumXX, sumXY);
         }
 
-        public void equation_reg(int sumX, int sumY, long sumX2, long sumXY)
+        public void equation_reg(int sumX, int sumY, long sumXX, long sumXY)
         {
             double delta, deltaX, deltaY;
             double tbX1Y1 = Convert.ToDouble(data_all.Length),
                 tbX2Y1 = Convert.ToDouble(sumX),
                 tbX1Y2 = Convert.ToDouble(sumX),
-                tbX2Y2 = Convert.ToDouble(sumX2),
+                tbX2Y2 = Convert.ToDouble(sumXX),
                 tbResult1 = Convert.ToDouble(sumY),
                 tbResult2 = Convert.ToDouble(sumXY);
 

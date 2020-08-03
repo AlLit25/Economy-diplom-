@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.ThemeDiplom = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelY = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
+            this.labelRR = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -101,7 +102,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(18, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 519);
+            this.groupBox1.Size = new System.Drawing.Size(505, 540);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистичні дані (млн грн)";
@@ -110,7 +111,7 @@
             // 
             this.label16.Location = new System.Drawing.Point(433, 72);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 433);
+            this.label16.Size = new System.Drawing.Size(65, 455);
             this.label16.TabIndex = 13;
             this.label16.Text = "label16";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -119,7 +120,7 @@
             // 
             this.label15.Location = new System.Drawing.Point(362, 72);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 433);
+            this.label15.Size = new System.Drawing.Size(65, 455);
             this.label15.TabIndex = 12;
             this.label15.Text = "label15";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -128,7 +129,7 @@
             // 
             this.label14.Location = new System.Drawing.Point(291, 72);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 433);
+            this.label14.Size = new System.Drawing.Size(65, 455);
             this.label14.TabIndex = 11;
             this.label14.Text = "label14";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -137,7 +138,7 @@
             // 
             this.label13.Location = new System.Drawing.Point(220, 72);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 433);
+            this.label13.Size = new System.Drawing.Size(65, 455);
             this.label13.TabIndex = 10;
             this.label13.Text = "label13";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -146,7 +147,7 @@
             // 
             this.label12.Location = new System.Drawing.Point(149, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 433);
+            this.label12.Size = new System.Drawing.Size(65, 455);
             this.label12.TabIndex = 9;
             this.label12.Text = "label12";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -155,7 +156,7 @@
             // 
             this.label11.Location = new System.Drawing.Point(78, 72);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 433);
+            this.label11.Size = new System.Drawing.Size(65, 455);
             this.label11.TabIndex = 8;
             this.label11.Text = "label11";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -164,7 +165,7 @@
             // 
             this.label10.Location = new System.Drawing.Point(7, 72);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 433);
+            this.label10.Size = new System.Drawing.Size(65, 455);
             this.label10.TabIndex = 7;
             this.label10.Text = "label10";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -234,7 +235,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(137, 577);
+            this.button2.Location = new System.Drawing.Point(138, 592);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 23);
             this.button2.TabIndex = 7;
@@ -266,22 +267,22 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(9, 40);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.CustomProperties = "PieLineColor=Black, PieLabelStyle=Outside, LabelsRadialLineSize=0.5";
-            series3.EmptyPointStyle.CustomProperties = "Exploded=True, PieLabelStyle=Outside";
-            series3.IsValueShownAsLabel = true;
-            series3.LabelBorderWidth = 3;
-            series3.Legend = "Legend1";
-            series3.Name = "S_Year";
-            series3.ShadowOffset = 5;
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.CustomProperties = "PieLineColor=Black, PieLabelStyle=Outside, LabelsRadialLineSize=0.5";
+            series2.EmptyPointStyle.CustomProperties = "Exploded=True, PieLabelStyle=Outside";
+            series2.IsValueShownAsLabel = true;
+            series2.LabelBorderWidth = 3;
+            series2.Legend = "Legend1";
+            series2.Name = "S_Year";
+            series2.ShadowOffset = 5;
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(633, 186);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -307,7 +308,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.labelRR);
+            this.groupBox3.Controls.Add(this.labelY);
             this.groupBox3.Controls.Add(this.chart2);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
@@ -315,17 +317,27 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(530, 287);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(648, 313);
+            this.groupBox3.Size = new System.Drawing.Size(648, 326);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Діаграма динаміки інвестицій";
             // 
+            // labelY
+            // 
+            this.labelY.AutoSize = true;
+            this.labelY.Location = new System.Drawing.Point(15, 310);
+            this.labelY.Name = "labelY";
+            this.labelY.Size = new System.Drawing.Size(24, 13);
+            this.labelY.TabIndex = 8;
+            this.labelY.Text = "y = ";
+            this.labelY.Visible = false;
+            // 
             // chart2
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(9, 46);
             this.chart2.Name = "chart2";
             this.chart2.Size = new System.Drawing.Size(633, 261);
@@ -377,7 +389,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(448, 577);
+            this.button1.Location = new System.Drawing.Point(449, 592);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -387,7 +399,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(367, 577);
+            this.button3.Location = new System.Drawing.Point(368, 592);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
@@ -397,27 +409,28 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(286, 577);
+            this.button4.Location = new System.Drawing.Point(287, 592);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 10;
             this.button4.Text = "Довідка";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // labelRR
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(489, 16);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 13);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "рівняння рересії";
+            this.labelRR.AutoSize = true;
+            this.labelRR.Location = new System.Drawing.Point(174, 310);
+            this.labelRR.Name = "labelRR";
+            this.labelRR.Size = new System.Drawing.Size(39, 13);
+            this.labelRR.TabIndex = 9;
+            this.labelRR.Text = "R*R = ";
+            this.labelRR.Visible = false;
             // 
             // MainWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 612);
+            this.ClientSize = new System.Drawing.Size(1190, 625);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -474,7 +487,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label labelY;
+        private System.Windows.Forms.Label labelRR;
     }
 }
 

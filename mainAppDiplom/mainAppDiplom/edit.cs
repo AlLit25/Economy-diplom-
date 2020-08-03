@@ -16,6 +16,7 @@ namespace mainAppDiplom
         public edit()
         {
             InitializeComponent();
+            label9.Text = "";
             print_year();
         }
 
@@ -77,7 +78,7 @@ namespace mainAppDiplom
                 textBox3.Text = reader[1].ToString();
                 textBox4.Text = reader[2].ToString();
                 textBox5.Text = reader[3].ToString();
-                textBox6.Text = Convert.ToString(Convert.ToInt32(reader[0]) + Convert.ToInt32(reader[1]) + Convert.ToInt32(reader[2]) + Convert.ToInt32(reader[3]));
+                label9.Text = Convert.ToString(Convert.ToInt32(reader[0]) + Convert.ToInt32(reader[1]) + Convert.ToInt32(reader[2]) + Convert.ToInt32(reader[3]));
                 textBox7.Text = reader[4].ToString();
             }
             db.closeConn();
@@ -129,11 +130,29 @@ namespace mainAppDiplom
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
-            textBox6.Text = "";
+            label9.Text = "";
             textBox7.Text = "";
 
             print_year();
            
+        }
+
+        public void All_sum()
+        {
+            label9.Text = Convert.ToString(Convert.ToInt64(textBox2.Text) + Convert.ToInt64(textBox3.Text) + Convert.ToInt64(textBox4.Text) + Convert.ToInt64(textBox5.Text));
+        }
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            All_sum();
         }
     }
 }
