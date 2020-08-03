@@ -22,21 +22,29 @@ namespace mainAppDiplom
             print_data();
             print_data_all();
             create_Series_Chart2();
-            label17.Text = col_rowDB().ToString();
+            
         }
         #region operation with dataDB
 
-        static int colRow = col_rowDB();
+        static int colRow = col_rowDB()+1;
 
-        int[] data_year = new int[colRow];
-        double[] data_own = new double[colRow];
-        double[] data_state = new double[colRow];
-        double[] data_foregn = new double[colRow];
-        double[] data_others = new double[colRow];
-        double[] data_all = new double[colRow];
-        double[] data_vvp = new double[colRow];
+        int[] data_year;
+        double[] data_own;
+        double[] data_state;
+        double[] data_foregn;
+        double[] data_others;
+        double[] data_all;
+        double[] data_vvp;
         public void print_data()
         {
+            data_year = new int[colRow];
+            data_own = new double[colRow];
+            data_state = new double[colRow];
+            data_foregn = new double[colRow];
+            data_others = new double[colRow];
+            data_all = new double[colRow];
+            data_vvp = new double[colRow];
+
             label10.Text = "";
             label11.Text = "";
             label12.Text = "";
@@ -44,11 +52,14 @@ namespace mainAppDiplom
             label14.Text = "";
             label16.Text = "";
 
+
+            int i = 0;
             DB db = new DB();
             SQLiteCommand comm = new SQLiteCommand("SELECT Year, Data_own, Data_State, Data_foregn, Data_others, Data_vvp FROM 'statisticsData'", db.getConn());
             db.openConn();
+
             SQLiteDataReader reader = comm.ExecuteReader();
-            for(int i = 0; reader.Read() == true; i++)
+            while(reader.Read())
             {
                 data_year[i] = Convert.ToInt32(reader[0].ToString());
                 data_own[i] = Convert.ToDouble(reader[1].ToString());
@@ -64,6 +75,7 @@ namespace mainAppDiplom
                 label14.Text += data_others[i] + Environment.NewLine + Environment.NewLine;
                 label16.Text += data_vvp[i] + Environment.NewLine + Environment.NewLine;
                 comboBox1.Items.Add(data_year[i]);
+                i++;
             }
             db.closeConn();
         }
@@ -73,8 +85,11 @@ namespace mainAppDiplom
             for (int i = 0; i < colRow; i++)
             {
                 data_all[i] = data_own[i] + data_state[i] + data_foregn[i] + data_others[i];
-                label15.Text += data_all[i];
+                if (data_all[i] == 0) label15.Text += "";
+                else label15.Text += data_all[i];
+                
                 label15.Text += Environment.NewLine + Environment.NewLine;
+                
             }
         }
         #endregion
@@ -262,7 +277,10 @@ namespace mainAppDiplom
             label16.Text = "";
             comboBox1.Items.Clear();
 
+            col_rowDB();
             print_data();
+            print_data_all();
+            label17.Text = col_rowDB().ToString();
         }
 
         public static int col_rowDB()

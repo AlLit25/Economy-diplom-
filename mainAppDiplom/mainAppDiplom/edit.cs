@@ -19,9 +19,46 @@ namespace mainAppDiplom
             print_year();
         }
 
+        //add new entry/edit entry
         private void button1_Click(object sender, EventArgs e)
         {
-            //INSERT INTO `statisticsdata` (`year`, `own`, `state`, `foregn`, `other`, `sum_all`, `vvp`) VALUES ('2008', '4526', '458', '4523', '6363', '12548', '125566');
+            string insert = "INSERT INTO statisticsData (Year, Data_own, Data_State, Data_foregn, Data_others, Data_vvp) VALUES ('"+textBox1.Text+"', '"+textBox2.Text+"', '"+ textBox3.Text + "', '"+ textBox4.Text + "', '"+ textBox5.Text + "', '"+ textBox7.Text + "')";
+            string update = "UPDATE statisticsData SET Data_own = "+ textBox2.Text + ", Data_State = "+ textBox3.Text + ", Data_foregn = "+ textBox4.Text + ", Data_others = "+ textBox5.Text + ", Data_vvp = "+textBox7.Text + " WHERE Year = " + textBox1.Text;
+            string save = "SAVEPOINT \"RESTOREPOINT\"";
+            DB db = new DB();
+            DataTable table = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter();
+            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData' WHERE Year = "+textBox1.Text, db.getConn());
+
+            adapter.SelectCommand = comm;
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                
+                SQLiteCommand insertQuery = new SQLiteCommand(insert, db.getConn());
+                
+                db.openConn();
+                if (insertQuery.ExecuteNonQuery() == 1) MessageBox.Show("Додано новий запис");
+                else MessageBox.Show("Виникли помилки при роботі з базою даних");
+                db.closeConn();
+            }
+            else
+            {
+                SQLiteCommand updateQuery = new SQLiteCommand(update, db.getConn());
+                SQLiteCommand saveQuery = new SQLiteCommand(save, db.getConn());
+                db.openConn();
+                //updateQuery.ExecuteNonQuery();
+                if (updateQuery.ExecuteNonQuery() == 1)
+                {
+                    saveQuery.ExecuteNonQuery();
+                    MessageBox.Show("Данні змінено");
+                    
+                }
+                else MessageBox.Show("Виникли помилки при роботі з базою даних");
+
+                db.closeConn();
+            }
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +88,7 @@ namespace mainAppDiplom
         int[] data_year = new int[colRow];
         public void print_year()
         {
+            comboBox1.Items.Clear();
             DB db = new DB();
             SQLiteCommand comm = new SQLiteCommand("SELECT Year FROM 'statisticsData'", db.getConn());
             db.openConn();
@@ -73,6 +111,29 @@ namespace mainAppDiplom
             adapter.SelectCommand = comm;
             adapter.Fill(table);
             return table.Rows.Count;
+        }
+
+        //delete entry
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string delete = "DELETE FROM statisticsData WHERE Year = " + textBox1.Text;
+            DB db = new DB();
+            SQLiteCommand deleteQuery = new SQLiteCommand(delete, db.getConn());
+
+            db.openConn();
+            if (deleteQuery.ExecuteNonQuery() == 1) MessageBox.Show("Запис видалено з бази даних");
+            else MessageBox.Show("Запис не видалено! Помилка роботи з БД");
+
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+
+            print_year();
+           
         }
     }
 }
