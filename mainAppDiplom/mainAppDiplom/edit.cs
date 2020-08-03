@@ -16,6 +16,12 @@ namespace mainAppDiplom
         public edit()
         {
             InitializeComponent();
+            textBox1.Text = "0";
+            textBox2.Text = "0";
+            textBox3.Text = "0";
+            textBox4.Text = "0";
+            textBox5.Text = "0";
+            textBox7.Text = "0";
             label9.Text = "";
             print_year();
         }
@@ -84,7 +90,7 @@ namespace mainAppDiplom
             db.closeConn();
         }
 
-        static int colRow = col_rowDB();
+        static int colRow = col_rowDB()*2;
 
         int[] data_year = new int[colRow];
         public void print_year()
@@ -125,16 +131,15 @@ namespace mainAppDiplom
             if (deleteQuery.ExecuteNonQuery() == 1) MessageBox.Show("Запис видалено з бази даних");
             else MessageBox.Show("Запис не видалено! Помилка роботи з БД");
 
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
+            textBox1.Text = "0";
+            textBox2.Text = "0";
+            textBox3.Text = "0";
+            textBox4.Text = "0";
+            textBox5.Text = "0";
             label9.Text = "";
-            textBox7.Text = "";
+            textBox7.Text = "0";
 
             print_year();
-           
         }
 
         public void All_sum()
@@ -149,10 +154,63 @@ namespace mainAppDiplom
                 e.Handled = true;
             }
         }
-
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
         private void textBox2_Leave(object sender, EventArgs e)
         {
             All_sum();
+        }
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            All_sum();
+        }
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            All_sum();
+        }
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            All_sum();
+        }
+
+        private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

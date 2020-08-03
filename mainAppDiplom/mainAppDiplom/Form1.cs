@@ -26,7 +26,7 @@ namespace mainAppDiplom
         }
         #region operation with dataDB
 
-        static int colRow = col_rowDB()+1;
+        static int colRow;
 
         int[] data_year;
         double[] data_own;
@@ -37,6 +37,7 @@ namespace mainAppDiplom
         double[] data_vvp;
         public void print_data()
         {
+            colRow = col_rowDB()+1;
             data_year = new int[colRow];
             data_own = new double[colRow];
             data_state = new double[colRow];
@@ -220,7 +221,7 @@ namespace mainAppDiplom
                 labelY.Visible = true;
                 labelRR.Visible = true;
                 line_Reg();
-                for (int i = 0; i < data_all.Length-1; i++)
+                for (int i = 0; i < data_all.Length-2; i++)
                 {
                     chart2.Series["Залежність ВВП/Інвестиції"].Points.AddXY(data_all[i], data_vvp[i]);
                     chart2.Series["Лінійна регресія"].Points.AddXY(data_all[i], y + x * data_all[i]);
@@ -307,6 +308,7 @@ namespace mainAppDiplom
         private void button2_Click(object sender, EventArgs e)
         {
             edit editForm = new edit();
+            editForm.Focus();
             editForm.Show();
         }
 
