@@ -90,14 +90,16 @@ namespace mainAppDiplom
             db.closeConn();
         }
 
-        static int colRow = col_rowDB()*2;
-
-        int[] data_year = new int[colRow];
+        static int colRow;
+        
+        int[] data_year;
         public void print_year()
         {
+            colRow = col_rowDB();
+            data_year = new int[colRow];
             comboBox1.Items.Clear();
             DB db = new DB();
-            SQLiteCommand comm = new SQLiteCommand("SELECT Year FROM 'statisticsData'", db.getConn());
+            SQLiteCommand comm = new SQLiteCommand("SELECT Year FROM statisticsData", db.getConn());
             db.openConn();
             SQLiteDataReader reader = comm.ExecuteReader();
             for (int i = 0; reader.Read() == true; i++)
@@ -113,7 +115,7 @@ namespace mainAppDiplom
             DB db = new DB();
             DataTable table = new DataTable();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter();
-            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData'", db.getConn());
+            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM statisticsData", db.getConn());
 
             adapter.SelectCommand = comm;
             adapter.Fill(table);

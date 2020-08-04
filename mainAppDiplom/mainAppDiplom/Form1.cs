@@ -292,23 +292,33 @@ namespace mainAppDiplom
             label17.Text = col_rowDB().ToString();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            help h = new help();
+            h.ShowDialog();
+        }
+
         public static int col_rowDB()
         {
             DB db = new DB();
-            DataTable table = new DataTable();
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter();
+            //DataTable table = new DataTable();
+            //SQLiteDataAdapter adapter = new SQLiteDataAdapter();
             SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData'", db.getConn());
 
-            adapter.SelectCommand = comm;
-            adapter.Fill(table);
-            return table.Rows.Count;
+            //adapter.SelectCommand = comm;
+            //adapter.Fill(table);
+            db.openConn();
+            int i = 0;
+            SQLiteDataReader reader = comm.ExecuteReader();
+            while (reader.Read()) i++;
+            db.closeConn();
+                return i;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             edit editForm = new edit();
-            editForm.Focus();
-            editForm.Show();
+            editForm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

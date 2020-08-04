@@ -18,7 +18,6 @@ E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDi
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CoreCompileInputs.cache
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.exe
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.pdb
-E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\dbeconomy.db
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.dll
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\EntityFramework.SqlServer.dll
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.dll
@@ -30,3 +29,4 @@ E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Da
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\bin\Debug\System.Data.SQLite.dll.config
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.csproj.CopyComplete
 E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.edit.resources
+E:\diplom(order)\economy-diplom-\mainAppDiplom\mainAppDiplom\obj\Debug\mainAppDiplom.help.resources

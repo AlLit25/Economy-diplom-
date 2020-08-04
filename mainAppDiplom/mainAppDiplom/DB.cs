@@ -10,7 +10,8 @@ namespace mainAppDiplom
 {
     class DB
     {
-        SQLiteConnection connection = new SQLiteConnection("DataSource=dbeconomy.db");
+        
+        SQLiteConnection connection = new SQLiteConnection("DataSource = E:/diplom(order)/economy-diplom-/mainAppDiplom/mainAppDiplom/dataDB.db");
 
         public void openConn()
         {
