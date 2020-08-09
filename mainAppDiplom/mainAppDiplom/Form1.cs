@@ -21,8 +21,12 @@ namespace mainAppDiplom
             InitializeComponent();
             print_data();
             print_data_all();
+
             create_Series_Chart2();
-            
+
+            clearLabel();
+
+
         }
         #region operation with dataDB
 
@@ -76,6 +80,8 @@ namespace mainAppDiplom
                 label14.Text += data_others[i] + Environment.NewLine + Environment.NewLine;
                 label16.Text += data_vvp[i] + Environment.NewLine + Environment.NewLine;
                 comboBox1.Items.Add(data_year[i]);
+                comboBox3.Items.Add(data_year[i]);
+                comboBox4.Items.Add(data_year[i]);
                 i++;
             }
             db.closeConn();
@@ -232,14 +238,17 @@ namespace mainAppDiplom
         }
         #endregion
 
-
         #region regresion line
         double x, y;
-        int sumX = 0, sumY = 0;
-        long sumXX = 0, sumXY = 0;
+        int sumX, sumY;
+        long sumXX, sumXY;
         public void line_Reg()
         {
-            
+            sumX = 0;
+            sumY = 0;
+            sumXX = 0;
+            sumXY = 0;
+
             for (int i = 0; i < data_all.Length; i++)
             {
                 sumX += Convert.ToInt32(Math.Round(data_all[i],0));
@@ -275,6 +284,68 @@ namespace mainAppDiplom
         }
 
         #endregion
+
+        #region percent growth
+        public void clearLabel()
+        {
+            label21.Text = "";
+            label22.Text = "";
+            label23.Text = "";
+            label24.Text = "";
+            label25.Text = "";
+            label26.Text = "";
+        }
+
+        public void calculation()
+        {
+            double ownS=0, ownE=0, stateS=0, stateE=0, foregnS=0, foregnE=0, othersS=0, othersE=0, vvpS=0, vvpE=0;
+            if (comboBox3.SelectedItem != null && comboBox4.SelectedItem != null)
+            {
+                if (comboBox3.SelectedIndex < comboBox4.SelectedIndex)
+                {
+                    DB db = new DB();
+                    SQLiteCommand startYear = new SQLiteCommand("SELECT Data_own, Data_State, Data_foregn, Data_others, Data_vvp FROM 'statisticsData' WHERE Year =" + comboBox3.SelectedItem.ToString(), db.getConn());
+                    SQLiteCommand endYear = new SQLiteCommand("SELECT Data_own, Data_State, Data_foregn, Data_others, Data_vvp FROM 'statisticsData' WHERE Year =" + comboBox4.SelectedItem.ToString(), db.getConn());
+                    db.openConn();
+                    SQLiteDataReader readerSY = startYear.ExecuteReader();
+                    while (readerSY.Read())
+                    {
+                        ownS = Convert.ToDouble(readerSY[0]);
+                        stateS = Convert.ToDouble(readerSY[1]);
+                        foregnS = Convert.ToDouble(readerSY[2]);
+                        othersS = Convert.ToDouble(readerSY[3]);
+                        vvpS = Convert.ToDouble(readerSY[4]);
+                    }
+                    SQLiteDataReader readerEY = endYear.ExecuteReader();
+                    while (readerEY.Read())
+                    {
+                        ownE = Convert.ToDouble(readerEY[0]);
+                        stateE = Convert.ToDouble(readerEY[1]);
+                        foregnE = Convert.ToDouble(readerEY[2]);
+                        othersE = Convert.ToDouble(readerEY[3]);
+                        vvpE = Convert.ToDouble(readerEY[4]);
+                    }
+                    db.closeConn();
+
+                    label21.Text = Convert.ToString(Math.Round(100 - (ownS / (ownE / 100)), 1));
+                    label22.Text = Convert.ToString(Math.Round(100 - (stateS / (stateE / 100)), 1));
+                    label23.Text = Convert.ToString(Math.Round(100 - (foregnS / (foregnE / 100)), 1));
+                    label24.Text = Convert.ToString(Math.Round(100 - (othersS / (othersE / 100)), 1));
+                    label25.Text = Convert.ToString(Math.Round(Convert.ToDouble(label21.Text) +
+                        Convert.ToDouble(label22.Text) +
+                        Convert.ToDouble(label23.Text) +
+                        Convert.ToDouble(label24.Text), 1)) + "%";
+                    label26.Text = Convert.ToString(Math.Round(100 - (vvpS / (vvpE / 100)), 1)) + "%";
+                    label21.Text += "%";
+                    label22.Text += "%";
+                    label23.Text += "%";
+                    label24.Text += "%";
+                }
+                else MessageBox.Show("Перевірте коректність послідовності обраних років!"+ Environment.NewLine + 
+                    "(Необхідна послідовність від меншого до більшого)");
+            }
+        }
+        #endregion
         private void button3_Click(object sender, EventArgs e)
         {
             label10.Text = "";
@@ -285,6 +356,8 @@ namespace mainAppDiplom
             label15.Text = "";
             label16.Text = "";
             comboBox1.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
 
             col_rowDB();
             print_data();
@@ -296,6 +369,16 @@ namespace mainAppDiplom
         {
             help h = new help();
             h.ShowDialog();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculation();
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculation();
         }
 
         public static int col_rowDB()

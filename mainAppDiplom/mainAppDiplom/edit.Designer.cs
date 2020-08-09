@@ -143,9 +143,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 134);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Зарубіжні";
+            this.label5.Text = "Іноземні";
             // 
             // textBox5
             // 

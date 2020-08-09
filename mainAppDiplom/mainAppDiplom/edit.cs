@@ -29,43 +29,50 @@ namespace mainAppDiplom
         //add new entry/edit entry
         private void button1_Click(object sender, EventArgs e)
         {
-            string insert = "INSERT INTO statisticsData (Year, Data_own, Data_State, Data_foregn, Data_others, Data_vvp) VALUES ('"+textBox1.Text+"', '"+textBox2.Text+"', '"+ textBox3.Text + "', '"+ textBox4.Text + "', '"+ textBox5.Text + "', '"+ textBox7.Text + "')";
-            string update = "UPDATE statisticsData SET Data_own = "+ textBox2.Text + ", Data_State = "+ textBox3.Text + ", Data_foregn = "+ textBox4.Text + ", Data_others = "+ textBox5.Text + ", Data_vvp = "+textBox7.Text + " WHERE Year = " + textBox1.Text;
-            string save = "SAVEPOINT \"RESTOREPOINT\"";
-            DB db = new DB();
-            DataTable table = new DataTable();
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter();
-            SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData' WHERE Year = "+textBox1.Text, db.getConn());
-
-            adapter.SelectCommand = comm;
-            adapter.Fill(table);
-            if (table.Rows.Count == 0)
+            if(textBox1.Text == "0")
             {
-                
-                SQLiteCommand insertQuery = new SQLiteCommand(insert, db.getConn());
-                
-                db.openConn();
-                if (insertQuery.ExecuteNonQuery() == 1) MessageBox.Show("Додано новий запис");
-                else MessageBox.Show("Виникли помилки при роботі з базою даних");
-                db.closeConn();
+                MessageBox.Show("Не коректне значення у полі \"Рік\"");
             }
             else
             {
-                SQLiteCommand updateQuery = new SQLiteCommand(update, db.getConn());
-                SQLiteCommand saveQuery = new SQLiteCommand(save, db.getConn());
-                db.openConn();
-                //updateQuery.ExecuteNonQuery();
-                if (updateQuery.ExecuteNonQuery() == 1)
-                {
-                    saveQuery.ExecuteNonQuery();
-                    MessageBox.Show("Данні змінено");
-                    
-                }
-                else MessageBox.Show("Виникли помилки при роботі з базою даних");
+                string insert = "INSERT INTO statisticsData (Year, Data_own, Data_State, Data_foregn, Data_others, Data_vvp) VALUES ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "', '" + textBox5.Text + "', '" + textBox7.Text + "')";
+                string update = "UPDATE statisticsData SET Data_own = " + textBox2.Text + ", Data_State = " + textBox3.Text + ", Data_foregn = " + textBox4.Text + ", Data_others = " + textBox5.Text + ", Data_vvp = " + textBox7.Text + " WHERE Year = " + textBox1.Text;
+                string save = "SAVEPOINT \"RESTOREPOINT\"";
+                DB db = new DB();
+                DataTable table = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter();
+                SQLiteCommand comm = new SQLiteCommand("SELECT * FROM 'statisticsData' WHERE Year = " + textBox1.Text, db.getConn());
 
-                db.closeConn();
+                adapter.SelectCommand = comm;
+                adapter.Fill(table);
+                if (table.Rows.Count == 0)
+                {
+
+                    SQLiteCommand insertQuery = new SQLiteCommand(insert, db.getConn());
+
+                    db.openConn();
+                    if (insertQuery.ExecuteNonQuery() == 1) MessageBox.Show("Додано новий запис");
+                    else MessageBox.Show("Виникли помилки при роботі з базою даних");
+                    db.closeConn();
+                }
+                else
+                {
+                    SQLiteCommand updateQuery = new SQLiteCommand(update, db.getConn());
+                    SQLiteCommand saveQuery = new SQLiteCommand(save, db.getConn());
+                    db.openConn();
+                    //updateQuery.ExecuteNonQuery();
+                    if (updateQuery.ExecuteNonQuery() == 1)
+                    {
+                        saveQuery.ExecuteNonQuery();
+                        MessageBox.Show("Данні змінено");
+
+                    }
+                    else MessageBox.Show("Виникли помилки при роботі з базою даних");
+
+                    db.closeConn();
+                }
+                Close();
             }
-            Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,7 +147,7 @@ namespace mainAppDiplom
             textBox5.Text = "0";
             label9.Text = "";
             textBox7.Text = "0";
-
+            comboBox1.Text = "";
             print_year();
         }
 
