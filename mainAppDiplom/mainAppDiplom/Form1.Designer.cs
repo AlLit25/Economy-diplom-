@@ -35,6 +35,13 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.ThemeDiplom = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,13 +76,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -85,13 +85,12 @@
             // 
             // ThemeDiplom
             // 
-            this.ThemeDiplom.AutoSize = true;
             this.ThemeDiplom.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ThemeDiplom.Location = new System.Drawing.Point(12, 9);
+            this.ThemeDiplom.Location = new System.Drawing.Point(18, 10);
             this.ThemeDiplom.Name = "ThemeDiplom";
-            this.ThemeDiplom.Size = new System.Drawing.Size(840, 33);
+            this.ThemeDiplom.Size = new System.Drawing.Size(1154, 33);
             this.ThemeDiplom.TabIndex = 1;
-            this.ThemeDiplom.Text = "Фінансове забезпечення інноваційної діяльності в Україні";
+            this.ThemeDiplom.Text = "Автоматизація фінансового забезпечення інноваційної діяльності в Україні";
             this.ThemeDiplom.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // groupBox1
@@ -123,6 +122,69 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистичні дані (млн грн)";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(8, 516);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(64, 13);
+            this.label27.TabIndex = 20;
+            this.label27.Text = "% приросту";
+            // 
+            // label26
+            // 
+            this.label26.Location = new System.Drawing.Point(434, 512);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(65, 20);
+            this.label26.TabIndex = 19;
+            this.label26.Text = "label26";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(363, 512);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(65, 20);
+            this.label25.TabIndex = 18;
+            this.label25.Text = "label25";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(292, 512);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 20);
+            this.label24.TabIndex = 17;
+            this.label24.Text = "label24";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            this.label23.Location = new System.Drawing.Point(221, 512);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 20);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "label23";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.Location = new System.Drawing.Point(150, 512);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 20);
+            this.label22.TabIndex = 15;
+            this.label22.Text = "label22";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(79, 512);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 20);
+            this.label21.TabIndex = 14;
+            this.label21.Text = "label21";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -271,7 +333,7 @@
             this.groupBox2.Size = new System.Drawing.Size(648, 232);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Діаграма загальних інвестицій";
+            this.groupBox2.Text = "Діаграма загального обсягу фінансування інновацій";
             // 
             // label17
             // 
@@ -338,7 +400,7 @@
             this.groupBox3.Size = new System.Drawing.Size(648, 371);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Діаграма динаміки інвестицій";
+            this.groupBox3.Text = "Діаграма динаміки обсягу фінансування інновацій";
             // 
             // labelRR
             // 
@@ -394,12 +456,12 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Загальний",
             "Власні",
             "Державний бюджет",
             "Іноземних інвесторів",
             "Інщі джерела",
-            "Залежність ВВП/Інвестиції"});
+            "Загальний",
+            "Залежність ВВП/Інвестицій"});
             this.comboBox2.Location = new System.Drawing.Point(92, 19);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(251, 21);
@@ -472,69 +534,6 @@
             this.label20.TabIndex = 13;
             this.label20.Text = "Оберіть роки для відображення приросту інвестицій";
             // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(79, 512);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(65, 20);
-            this.label21.TabIndex = 14;
-            this.label21.Text = "label21";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.Location = new System.Drawing.Point(150, 512);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 20);
-            this.label22.TabIndex = 15;
-            this.label22.Text = "label22";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label23
-            // 
-            this.label23.Location = new System.Drawing.Point(221, 512);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 20);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "label23";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.Location = new System.Drawing.Point(292, 512);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 20);
-            this.label24.TabIndex = 17;
-            this.label24.Text = "label24";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.Location = new System.Drawing.Point(363, 512);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 20);
-            this.label25.TabIndex = 18;
-            this.label25.Text = "label25";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.Location = new System.Drawing.Point(434, 512);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(65, 20);
-            this.label26.TabIndex = 19;
-            this.label26.Text = "label26";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(8, 516);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(64, 13);
-            this.label27.TabIndex = 20;
-            this.label27.Text = "% приросту";
-            // 
             // MainWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +553,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.HelpButton = true;
             this.Name = "MainWin";
+            this.Text = "AofFS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
