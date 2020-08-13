@@ -149,7 +149,7 @@ namespace mainAppDiplom
                 Color = Color.Orange
             });
 
-            chart2.Series.Add(new Series("Залежність ВВП/Інвестиції")
+            chart2.Series.Add(new Series("Залежність ВВП/Інвестицій")
             {
                 ChartType = SeriesChartType.Point,
                 Color = Color.BlueViolet
@@ -168,7 +168,7 @@ namespace mainAppDiplom
             chart2.Series["Державний бюджет"].Points.Clear();
             chart2.Series["Іноземних інвесторів"].Points.Clear();
             chart2.Series["Інщі джерела"].Points.Clear();
-            chart2.Series["Залежність ВВП/Інвестиції"].Points.Clear();
+            chart2.Series["Залежність ВВП/Інвестицій"].Points.Clear();
             chart2.Series["Лінійна регресія"].Points.Clear();
 
             
@@ -220,16 +220,16 @@ namespace mainAppDiplom
                     chart2.Series["Інщі джерела"].Points.AddXY(data_year[i], data_others[i]);
                 }
             }
-            if (chart_name == "Залежність ВВП/Інвестиції")
+            if (chart_name == "Залежність ВВП/Інвестицій")
             {
-                label18.Text = "Вісь X - Загальні інвестиції";
+                label18.Text = "Вісь X - Загальні інвестицій";
                 label19.Text = "Вісь Y - ВВП";
                 labelY.Visible = true;
                 labelRR.Visible = true;
                 line_Reg();
                 for (int i = 0; i < data_all.Length; i++)
                 {
-                    chart2.Series["Залежність ВВП/Інвестиції"].Points.AddXY(data_all[i], data_vvp[i]);
+                    chart2.Series["Залежність ВВП/Інвестицій"].Points.AddXY(data_all[i], data_vvp[i]);
                     chart2.Series["Лінійна регресія"].Points.AddXY(data_all[i], y + x * data_all[i]);
                 }
                 labelY.Text = "y = "+x+" + "+ y+"x";
